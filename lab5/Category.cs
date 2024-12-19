@@ -18,6 +18,12 @@ namespace lab5
             Name = name;
             AgeRestriction = ageRestriction;
         }
+        public Category(Category category)
+        {
+            ID = category.ID;
+            Name = category.Name;
+            AgeRestriction = category.AgeRestriction;
+        }
 
         public override string ToString()
         {

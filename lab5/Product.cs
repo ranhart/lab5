@@ -24,6 +24,15 @@ namespace lab5
             SecondPrice = secondPrice;
             Discount = discount;
         }
+        public Product(Product product)
+        {
+            Article = product.Article;
+            CategoryID = product.CategoryID;
+            ItemName = product.ItemName;
+            FirstPrice = product.FirstPrice;
+            SecondPrice = product.SecondPrice;
+            Discount = product.Discount;
+        }
 
         public override string ToString()
         {

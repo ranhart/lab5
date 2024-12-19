@@ -26,6 +26,16 @@ namespace lab5
             ItemsQuantity = itemsQuantity;
             Card = card;
         }
+        public ProductMovement(int operationID, DateTime date, string shopID, int article, string operationType, int itemsQuantity, string card)
+        {
+            OperationID = operationID;
+            Date = date;
+            ShopID = shopID;
+            Article = article;
+            OperationType = operationType;
+            ItemsQuantity = itemsQuantity;
+            Card = card;
+        }
 
         public override string ToString()
         {
