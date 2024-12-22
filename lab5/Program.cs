@@ -37,7 +37,7 @@ namespace lab5
                     switch (task) {                    
                         case 1:
 
-
+                            break;
                         default:
                             Console.WriteLine("Ошибка ввода.");
                             break;

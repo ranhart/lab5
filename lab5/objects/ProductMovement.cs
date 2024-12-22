@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace lab5
+namespace lab5.objects
 {
     internal class ProductMovement
     {
@@ -39,7 +39,7 @@ namespace lab5
 
         public override string ToString()
         {
-            return $"ID операции: {OperationID}, дата: {Date}, ID магазина: {ShopID}, артикул: {Article}, тип операции: {OperationType}, кол-во упаковок: {ItemsQuantity}, наличие карты клиента: {Card}"; 
+            return $"ID операции: {OperationID}, дата: {Date}, ID магазина: {ShopID}, артикул: {Article}, тип операции: {OperationType}, кол-во упаковок: {ItemsQuantity}, наличие карты клиента: {Card}";
         }
     }
 }
