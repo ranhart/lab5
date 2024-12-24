@@ -9,16 +9,38 @@ namespace lab5
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Как ввести логгирование файлов? (1 = тот же файл, 0 = новый файл): "); // логгер
-            string str = Console.ReadLine();
-            if (bool.TryParse(str, out bool mode)) 
+            Logger logger = null;
+            Database db = null;
+
+            bool validInput = false;
+            while (!validInput)
             {
-                bool logMode = mode;
-                Console.WriteLine("Введите путь к лог файлу: ");
-                string logFilePath = Console.ReadLine();
-                Logger logger = new Logger(logFilePath, logMode);
+                Console.WriteLine("Как ввести логгирование файлов? (true = добавлять в существующий, false = новый файл): "); // логгер
+                string str = Console.ReadLine();
+                if (bool.TryParse(str, out bool mode)) 
+                {
+                    bool logMode = mode;
+                    Console.WriteLine("Введите полный путь к лог файлу: ");
+                    string logFilePath = Console.ReadLine();
+                    logger = new Logger(logFilePath, logMode);
+                    validInput = true; 
+                }
+                else { Console.WriteLine("Ошибка ввода."); }   
             }
-            else { Console.WriteLine("Ошибка ввода."); }     
+
+            validInput = false;
+            while (!validInput)
+            {
+                Console.WriteLine("Введите полный путь до Excel файла: ");
+                string excelPath = Console.ReadLine();
+                if (File.Exists(excelPath))
+                {
+                    
+                    db = new Database(excelPath, logger);
+                    validInput = true;
+                }
+                else { Console.WriteLine("Ошибка ввода."); }
+            }    
 
             int task = -1; // выбор задания                                   
             while (task != 0) {
@@ -32,11 +54,11 @@ namespace lab5
                     "\n7 = логгирование" +
                     "\n0 = Выход.");
 
-                str = Console.ReadLine();
+                string str = Console.ReadLine();
                 if (int.TryParse(str, out task)) {
                     switch (task) {                    
                         case 1:
-
+                            db.Read();
                             break;
                         default:
                             Console.WriteLine("Ошибка ввода.");

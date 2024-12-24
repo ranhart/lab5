@@ -9,14 +9,14 @@ namespace lab5.objects
     internal class ProductMovement
     {
         public int OperationID { get; set; }
-        public DateTime Date { get; set; }
+        public DateOnly Date { get; set; }
         public string ShopID { get; set; }
         public int Article { get; set; }
         public string OperationType { get; set; }
         public int ItemsQuantity { get; set; }
         public string Card { get; set; }
 
-        public ProductMovement(int operationID, DateTime date, string shopID, int article, string operationType, int itemsQuantity, string card)
+        public ProductMovement(int operationID, DateOnly date, string shopID, int article, string operationType, int itemsQuantity, string card)
         {
             OperationID = operationID;
             Date = date;

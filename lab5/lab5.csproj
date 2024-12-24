@@ -19,4 +19,8 @@
     </COMReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="EPPlus" Version="7.5.2" />
+  </ItemGroup>
+
 </Project>

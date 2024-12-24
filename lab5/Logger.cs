@@ -8,22 +8,28 @@ namespace lab5
 {
     internal class Logger
     {
-        private string logFilePath;
-        private bool logMode;
+        private string _logFilePath;
 
-        public Logger(string path, bool mode) { // конструктор логгера
-            logFilePath = path;
-            if (!File.Exists(logFilePath)) {
-                File.WriteAllText(logFilePath, "Лог файл создан." + DateTime.Now + Environment.NewLine );
-            }
-            else if (!logMode)
+        public Logger(string logFilePath, bool logMode) { // конструктор логгера
+           
+            if (logMode)
             {
-                File.WriteAllText(logFilePath, "Лог-файл очищен: " + DateTime.Now + Environment.NewLine);
+                if (File.Exists(logFilePath))
+                {
+                    _logFilePath = logFilePath;
+                }
+                else { throw new FileNotFoundException("Файл отсутствует"); }
+            }
+            else
+            {
+                _logFilePath = logFilePath;
+                File.Create(logFilePath).Close();
+                File.WriteAllText(logFilePath, "Лог файл создан. " + DateTime.Now + Environment.NewLine);
             }
         }
         public void Log(string message) // запись в лог файл
         {
-            File.AppendAllText(logFilePath, $"{DateTime.Now}: {message}");
+            File.AppendAllText(_logFilePath, $"{DateTime.Now}: {message}\n");
         }
     }
 }

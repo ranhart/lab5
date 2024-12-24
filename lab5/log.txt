@@ -1,0 +1,9 @@
+Лог файл создан. 25.12.2024 2:48:53
+25.12.2024 2:48:58: Ошибка  чтения листа "Движение товаров": System.FormatException: The input string '' was not in a correct format.
+   at System.Number.ThrowFormatException[TChar](ReadOnlySpan`1 value)
+   at System.Int32.Parse(String s)
+   at lab5.Database.ReadProductMovement() in C:\Users\artik\source\repos\ranhart\lab5\lab5\Database.cs:line 55
+25.12.2024 2:48:58: Лист "Товар" успешно считан.
+25.12.2024 2:48:58: Лист "Категория" успешно считан.
+25.12.2024 2:48:58: Лист "Магазин" успешно считан.
+25.12.2024 2:48:58: Чтение файла завершено
