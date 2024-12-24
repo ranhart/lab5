@@ -26,15 +26,15 @@ namespace lab5.objects
             ItemsQuantity = itemsQuantity;
             Card = card;
         }
-        public ProductMovement(int operationID, DateTime date, string shopID, int article, string operationType, int itemsQuantity, string card)
+        public ProductMovement(ProductMovement productMovement)
         {
-            OperationID = operationID;
-            Date = date;
-            ShopID = shopID;
-            Article = article;
-            OperationType = operationType;
-            ItemsQuantity = itemsQuantity;
-            Card = card;
+            OperationID = productMovement.OperationID;
+            Date = productMovement.Date;
+            ShopID = productMovement.ShopID;
+            Article = productMovement.Article;
+            OperationType = productMovement.OperationType;
+            ItemsQuantity = productMovement.ItemsQuantity;
+            Card = productMovement.Card;
         }
 
         public override string ToString()

@@ -19,6 +19,13 @@ namespace lab5.objects
             Adress = adress;
         }
 
+        public Shop(Shop shop)
+        {
+            ID = shop.ID;
+            Area = shop.Area;
+            Adress = shop.Adress;
+        }
+
         public override string ToString()
         {
             return $"ID: {ID}, район{Area}, адрес{Adress}";
