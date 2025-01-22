@@ -50,7 +50,7 @@ namespace lab5
                 {
                     var worksheet = package.Workbook.Worksheets[0];
                     int rows = worksheet.Dimension.Rows;
-                    for (int i = 2; i <= rows; i++)
+                    for (int i = 2; i <= rows - 1; i++)
                     {
                         _productMovement.Add(new ProductMovement(
                             int.Parse(worksheet.Cells[i, 1].Text),
@@ -61,6 +61,7 @@ namespace lab5
                             int.Parse(worksheet.Cells[i, 6].Text),
                             worksheet.Cells[i, 7].Text
                             ));
+                        _logger.Log("Считана строка "+ i);
                     }
                     _logger.Log("Лист \"Движение товаров\" успешно считан.");
                 }
